@@ -1,7 +1,9 @@
 
-
+-----------------
 -- My Key Maps --
+-----------------
 
+vim.keymap.set('n', '<leader>E', ':E<CR>', {})
 
 -- Neo Tree --
 
@@ -28,15 +30,27 @@ vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
 vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
-vim.keymap.set('n', '<space>wl', 
+vim.keymap.set('n', '<space>wl',
   function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, opts
 )
 
-vim.keymap.set('n', '<space>f', 
+vim.keymap.set('n', '<space>f',
   function()
     vim.lsp.buf.format { async = true }
   end, opts
 )
 
+-- Undo Tree --
+
+vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
+
+-- Trouble --
+
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader><F6>", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
