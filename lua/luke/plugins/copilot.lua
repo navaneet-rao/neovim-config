@@ -1,5 +1,4 @@
-return {
-	"zbirenbaum/copilot.lua",
+return {	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
 	event = "InsertEnter",
 	config = function()
@@ -19,12 +18,13 @@ return {
 					ratio = 0.3,
 				},
 			},
+
 			suggestion = {
 				enabled = true,
-				auto_trigger = false,
-				debounce = 75,
+				auto_trigger = true;
+ 				debounce = 75,
 				keymap = {
-					accept = "<M-l>",
+                  accept = "<leader><tab>",
 					accept_word = false,
 					accept_line = false,
 					next = "<M-]>",
