@@ -64,7 +64,7 @@ end)
 
 -- none ls --
 
-vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, {})
+-- vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, {})
 
 -- harpoon2 --
 
@@ -101,4 +101,3 @@ end)
 vim.keymap.set("n", "<C-S-N>", function()
 	harpoon:list():next()
 end)
-
