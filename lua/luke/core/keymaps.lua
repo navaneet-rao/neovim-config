@@ -9,7 +9,7 @@ vim.keymap.set("n", "<leader>E", ":E<CR>", {})
 --vim.keymap.set("n", "<C-n>", ":Neotree<CR>", {})
 vim.keymap.set("n", "<C-b>", "<Cmd>Neotree toggle<CR>")
 
--- Lazy Git --
+-- Lazy.Git --
 
 vim.keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>")
 
@@ -43,8 +43,14 @@ vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
 
 -- Trouble --
 
-vim.keymap.set("n", "<leader>xx", function()
+vim.keymap.set("n", "<leader>tt", function()
 	require("trouble").toggle()
+end)
+vim.keymap.set("n", "<leader>tn", function()
+	require("trouble").next({
+		skip_groups = true,
+		jump = true,
+	})
 end)
 vim.keymap.set("n", "<leader><F6>", function()
 	require("trouble").toggle("workspace_diagnostics")
