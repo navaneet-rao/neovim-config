@@ -19,6 +19,7 @@ return { "nvim-neotest/nvim-nio" }, {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
+		--TODO: dapui doesn't work with neotest
 		require("dapui").setup()
 		require("dap-go").setup({
 			dap.adapters.delve == {
