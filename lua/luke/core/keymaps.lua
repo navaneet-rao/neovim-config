@@ -3,7 +3,7 @@
 -----------------
 
 vim.keymap.set("n", "<leader>E", ":E<CR>", {})
-
+vim.keymap.set("i", "<leader>jj", "<esc>", {})
 -- Neo Tree --
 
 --vim.keymap.set("n", "<C-n>", ":Neotree<CR>", {})
