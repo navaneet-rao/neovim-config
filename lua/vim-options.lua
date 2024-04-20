@@ -6,5 +6,9 @@ vim.cmd("set shiftwidth=2")
 -- Set line numbers
 vim.cmd([[set number relativenumber]])
 
+vim.cmd([[set colorcolumn=80]])
+-- vim.cmd([[set nowrap]])
+vim.cmd([[set history=1000]])
+
 vim.g.mapleader = " "
 vim.g.nvim_tree_devicons = { enable = true, default = true }
