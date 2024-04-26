@@ -26,6 +26,7 @@ return {
           "gopls",
           "arduino_language_server",
           "asm_lsp",
+          "tailwindcss",
         },
       })
     end,
@@ -51,6 +52,7 @@ return {
       lspconfig.gopls.setup({ capabilities = capabilities })
       lspconfig.arduino_language_server.setup({ capabilities = capabilities })
       lspconfig.asm_lsp.setup({ capabilities = capabilities })
+      lspconfig.tailwindcss.setup({ capabilities = capabilities })
     end,
   },
 }
