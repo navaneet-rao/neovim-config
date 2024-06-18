@@ -18,7 +18,7 @@ return {
           "dockerls",
           "jsonls",
           "pyright",
-          "jedi_language_server",
+          -- "jedi_language_server",
           "sqlls",
           "intelephense",
           "cssls",
@@ -26,7 +26,7 @@ return {
           "gopls",
           "arduino_language_server",
           "asm_lsp",
-          "tailwindcss",
+          -- "tailwindcss",
         },
       })
     end,
@@ -44,7 +44,7 @@ return {
       lspconfig.dockerls.setup({ capabilities = capabilities })
       lspconfig.jsonls.setup({ capabilities = capabilities })
       lspconfig.pyright.setup({ capabilities = capabilities })
-      lspconfig.jedi_language_server.setup({ capabilities = capabilities })
+      -- lspconfig.jedi_language_server.setup({ capabilities = capabilities })
       lspconfig.sqlls.setup({ capabilities = capabilities })
       lspconfig.intelephense.setup({ capabilities = capabilities })
       lspconfig.cssls.setup({ capabilities = capabilities })
@@ -52,7 +52,7 @@ return {
       lspconfig.gopls.setup({ capabilities = capabilities })
       lspconfig.arduino_language_server.setup({ capabilities = capabilities })
       lspconfig.asm_lsp.setup({ capabilities = capabilities })
-      lspconfig.tailwindcss.setup({ capabilities = capabilities })
+      -- lspconfig.tailwindcss.setup({ capabilities = capabilities })
     end,
   },
 }
