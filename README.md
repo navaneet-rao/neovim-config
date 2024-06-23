@@ -27,13 +27,11 @@ To use this configuration, follow these steps:
 3. **Install required dependencies**:
     Ensure you have the necessary dependencies installed. You can use a package manager like `apt`, `brew`, or `yum` to install them.
 
-4. **Open Neovim**:
+4. **Install Plugins**:
+    Once Reload the neovim and Lazy will install the required plugins.
     ```sh
     nvim
     ```
-
-5. **Install Plugins**:
-    Once Neovim is open, run `:PackerSync` to install all the plugins.
 
 ## Plugins
 
