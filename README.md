@@ -66,11 +66,24 @@ Feel free to explore and customize these configurations to fit your needs.
 
 Keybindings are defined in the `init.vim` or `init.lua` file. Here are some of the keybindings used in this configuration:
 
-- **File Explorer**: `Ctrl + e` to toggle Neo-tree.
-- **Fuzzy Finder**: `Ctrl + p` to open Telescope.
+- **File Explorer**: `Ctrl + b` to toggle Neo-tree.
+- **Fuzzy Finder**: `Ctrl + ff` to open Telescope.
 - **LSP**: `gd` to go to definition, `gr` to show references.
 - **Git**: `Leader + gg` to open LazyGit.
-- **Trouble**: `Leader + xx` to toggle Trouble.
+
+#### Using `<leader>/` to Fuzzy Find Keybinds
+
+1. **Open Neovim.**
+2. **Press `<leader>/` to open the fuzzy finder.**
+3. **Type `: Telescope keymaps` to search for the key bindings.**
+
+#### Referring to `keymaps.lua` for Configuring Keybinds
+
+1. **Locate your Neovim configuration directory.** <br>
+   Typically, this is `~/.config/nvim/` on Unix-based systems or `~/AppData/Local/nvim/` on Windows.
+4. **Open the `keymaps.lua` file in your preferred editor.** For example, run `nvim ~/.config/nvim/lua/../../keymaps.lua`.
+5. **Edit or review the key bindings as needed.**
+
 
 ## Screenshots
 
