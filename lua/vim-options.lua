@@ -10,5 +10,9 @@ vim.cmd([[set colorcolumn=80]])
 -- vim.cmd([[set nowrap]])
 vim.cmd([[set history=1000]])
 
+vim.cmd([[set clipboard=unnamedplus]])
+
 vim.g.mapleader = " "
 vim.g.nvim_tree_devicons = { enable = true, default = true }
+
+
