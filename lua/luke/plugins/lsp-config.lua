@@ -84,20 +84,25 @@ return {
 						configuration = {
 							runtimes = {
 								{
-									name = "JavaSE-17",
-									path = "/usr/lib/jvm/java-17-openjdk-amd64",
-									default = false,
-								},
-								{
-									name = "JavaSE-11",
-									path = "/usr/lib/jvm/java-11-openjdk-amd64",
-									default = false,
-								},
-								{
-									name = "JavaSE-19",
-									path = "/usr/lib/jvm/java-19-openjdk-amd64",
+									name = "JavaSE-21",
+									path = "C:/Program Files/Java/jdk-21/bin",
 									default = true,
 								},
+								-- {
+								-- 	name = "JavaSE-17",
+								-- 	path = "/usr/lib/jvm/java-17-openjdk-amd64",
+								-- 	default = false,
+								-- },
+								-- {
+								-- 	name = "JavaSE-11",
+								-- 	path = "/usr/lib/jvm/java-11-openjdk-amd64",
+								-- 	default = false,
+								-- },
+								-- {
+								-- 	name = "JavaSE-19",
+								-- 	path = "/usr/lib/jvm/java-19-openjdk-amd64",
+								-- 	default = true,
+								-- },
 							},
 						},
 					},

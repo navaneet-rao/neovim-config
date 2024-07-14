@@ -1,10 +1,9 @@
 -----------------
 -- My Key Maps --
 -----------------
-
 vim.keymap.set("n", "<leader>/", "<CR>:Telescope keymaps<CR>", {})
+vim.api.nvim_set_keymap("n", "<C-i>", "<Esc>o", { noremap = true, silent = true })
 
--- --
 vim.keymap.set("n", "<leader>E", ":E<CR>", {})
 vim.keymap.set("i", "<leader>jj", "<esc>", {})
 -- Neo Tree --
