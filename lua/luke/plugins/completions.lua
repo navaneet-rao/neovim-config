@@ -1,10 +1,7 @@
 return {
 	{
 		"j-hui/fidget.nvim",
-		opts = {
-			-- options
-			-- TODO: Add options
-		},
+		config = function() end,
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -61,7 +58,6 @@ return {
 						require("luasnip").lsp_expand(args.body)
 					end,
 				},
-
 				window = {
 					completion = cmp.config.window.bordered({
 						border = "double",
