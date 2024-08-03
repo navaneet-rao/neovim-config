@@ -13,6 +13,37 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
+		config = function()
+			local luasnip = require("luasnip")
+
+			-- Load snippets from custom folder
+			luasnip.config.set_config({
+				history = true,
+				updateevents = "TextChanged,TextChangedI",
+			})
+
+			for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("~/.config/nvim/lua/luke/snippets/*.lua", true)) do
+				loadfile(ft_path)()
+			end
+			-- Key mappings for jumping within snippets
+			-- vim.keymap.set({ "i", "s" }, "<C-k>", function()
+			-- 	if luasnip.expand_or_jumpable() then
+			-- 		luasnip.expand_or_jump()
+			-- 	end
+			-- end, { silent = true })
+			--
+			-- vim.keymap.set({ "i", "s" }, "<C-j>", function()
+			-- 	if luasnip.jumpable(-1) then
+			-- 		luasnip.jump(-1)
+			-- 	end
+			-- end, { silent = true })
+			--
+			-- vim.keymap.set({ "i", "s" }, "<C-l>", function()
+			-- 	if luasnip.choice_active() then
+			-- 		luasnip.change_choice(1)
+			-- 	end
+			-- end, { silent = true })
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
