@@ -7,9 +7,16 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
-local keymaps = {
-	-- General
+local builtin = require("telescope.builtin")
 
+local keymaps = {
+
+	-- Window Navigation
+	{ mode = "n", key = "<C-h>", action = "<C-w><C-h>", desc = "Move to left window" },
+	{ mode = "n", key = "<C-j>", action = "<C-w><C-j>", desc = "Move to bottom window" },
+	{ mode = "n", key = "<C-k>", action = "<C-w><C-k>", desc = "Move to top window" },
+	{ mode = "n", key = "<C-l>", action = "<C-w><C-l>", desc = "Move to right window" },
+	-- General
 	{
 		mode = "n",
 		key = "<leader>//",
@@ -48,12 +55,6 @@ local keymaps = {
 		desc = "Open LazyGit",
 	},
 
-	-- Window Navigation
-	{ mode = "n", key = "<C-h>", action = "<C-w>h", desc = "Move to left window" },
-	{ mode = "n", key = "<C-j>", action = "<C-w>j", desc = "Move to bottom window" },
-	{ mode = "n", key = "<C-k>", action = "<C-w>k", desc = "Move to top window" },
-	{ mode = "n", key = "<C-l>", action = "<C-w>l", desc = "Move to right window" },
-
 	-- LSP Config
 	{
 		mode = "n",
@@ -85,7 +86,7 @@ local keymaps = {
 	},
 	{
 		mode = "n",
-		key = "<C-k>",
+		key = "nil", --TODO: remap
 		action = vim.lsp.buf.signature_help,
 		opts = {},
 		desc = "Signature help",
@@ -164,15 +165,15 @@ local keymaps = {
 		mode = "n",
 		key = "<leader>tt",
 		action = "<cmd>Trouble diagnostics toggle<cr>",
-		desc = "Toggle Trouble diagnostics",
+		desc = "[t]oggle [t]rouble diagnostics",
 	},
 	{
 		mode = "n",
-		key = "<leader>tn",
+		key = "<leader>tn", --TODO: add previous too
 		action = function()
 			require("trouble").next({ skip_groups = true, jump = true })
 		end,
-		desc = "Next Trouble item",
+		desc = "[t]rouble [n]ext item",
 	},
 	{
 		mode = "n",
@@ -180,7 +181,7 @@ local keymaps = {
 		action = function()
 			require("trouble").toggle("workspace_diagnostics")
 		end,
-		desc = "Toggle Trouble workspace diagnostics",
+		desc = "[ ][F6] toggle trouble workspace diagnostics",
 	},
 	{
 		mode = "n",
@@ -188,7 +189,7 @@ local keymaps = {
 		action = function()
 			require("trouble").toggle("document_diagnostics")
 		end,
-		desc = "Toggle Trouble document diagnostics",
+		desc = "[ ][x] Toggle Trouble [d]ocument diagnostics",
 	},
 	{
 		mode = "n",
@@ -196,7 +197,7 @@ local keymaps = {
 		action = function()
 			require("trouble").toggle("quickfix")
 		end,
-		desc = "Toggle Trouble quickfix",
+		desc = "[ ][x] Toggle Trouble [q]uickfix",
 	},
 	{
 		mode = "n",
@@ -204,11 +205,11 @@ local keymaps = {
 		action = function()
 			require("trouble").toggle("loclist")
 		end,
-		desc = "Toggle Trouble loclist",
+		desc = "[ ][x] Toggle Trouble [l]oclist",
 	},
 	{
 		mode = "n",
-		key = "gR",
+		key = "gR", --TODO: remap this
 		action = function()
 			require("trouble").toggle("lsp_references")
 		end,
@@ -234,7 +235,7 @@ local keymaps = {
 	},
 	{
 		mode = "n",
-		key = "<C-h>",
+		key = "nil", --TODO: remap
 		action = function()
 			require("harpoon.ui").nav_file(1)
 		end,
@@ -279,6 +280,68 @@ local keymaps = {
 			require("harpoon.ui").nav_next()
 		end,
 		desc = "Navigate to next Harpoon file",
+	},
+
+	-- Telescope
+	{
+		mode = "n",
+		key = "<leader>ff",
+		action = builtin.find_files,
+		desc = "[f]ind [f]iles",
+	},
+	{
+		mode = "n",
+		key = "<leader>fg",
+		action = builtin.live_grep,
+		desc = "[f]ind Live [g]rep",
+	},
+	{
+		mode = "n",
+		key = "<leader>fb",
+		action = builtin.buffers,
+		desc = "[f]ind [b]uffers",
+	},
+	{
+		mode = "n",
+		key = "<leader>fh",
+		action = builtin.help_tags,
+		desc = "[f]ind [h]elp tags",
+	},
+	{
+		mode = "n",
+		key = "<leader>fc",
+		action = builtin.commands,
+		desc = "[f]ind [c]ommands",
+	},
+	{
+		mode = "n",
+		key = "<leader>fr",
+		action = builtin.reloader,
+		desc = "[f]ind [r]eload modules",
+	},
+	{
+		mode = "n",
+		key = "<leader>fo",
+		action = builtin.oldfiles,
+		desc = "[f]ind [o]ld files",
+	},
+	{
+		mode = "n",
+		key = "<leader>fws",
+		action = function()
+			local word = vim.fn.expand("<cword>")
+			builtin.grep_string({ search = word })
+		end,
+		desc = "Grep string under cursor (word)",
+	},
+	{
+		mode = "n",
+		key = "<leader>fWs",
+		action = function()
+			local word = vim.fn.expand("<cWORD>")
+			builtin.grep_string({ search = word })
+		end,
+		desc = "Grep string under cursor (WORD)",
 	},
 }
 

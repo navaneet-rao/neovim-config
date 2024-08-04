@@ -1,5 +1,19 @@
 return {
 	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1004,
+
+		config = function()
+			require("catppuccin").setup({
+				-- NOTE: latte flavour is all white
+				flavour = "mocha", -- latte, frappe, macchiato, mocha
+			})
+
+			vim.cmd([[colorscheme catppuccin]])
+		end,
+	},
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1002,

@@ -6,6 +6,7 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"leoluz/nvim-dap-go",
 		},
+
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
 

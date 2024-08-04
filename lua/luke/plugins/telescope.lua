@@ -5,7 +5,7 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local telescope = require("telescope")
-			local builtin = require("telescope.builtin")
+
 			telescope.setup({
 				defaults = {
 					prompt_prefix = "❯ ",
@@ -29,38 +29,18 @@ return {
 					border = {},
 					borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 				},
-			})
 
-			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-			vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-			vim.keymap.set("n", "<leader>fc", builtin.commands, {})
-			vim.keymap.set("n", "<leader>fr", builtin.reloader, {})
-			vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
-			vim.keymap.set("n", "<leader>fws", function()
-				local word = vim.fn.expand("<cword>")
-				builtin.grep_string({ search = word })
-			end, {})
-			vim.keymap.set("n", "<leader>fWs", function()
-				local word = vim.fn.expand("<cWORD>")
-				builtin.grep_string({ search = word })
-			end, {})
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown(),
+					},
+				},
+			})
 		end,
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
-			-- This is your opts table
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({
-							-- even more opts
-						}),
-					},
-				},
-			})
 			-- To get ui-select loaded and working with telescope, you need to call
 			-- load_extension, somewhere after setup function:
 			require("telescope").load_extension("ui-select")

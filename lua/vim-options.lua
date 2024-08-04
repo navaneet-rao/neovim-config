@@ -1,16 +1,16 @@
 -- Set tab-related options
 vim.cmd("set expandtab") -- Use spaces instead of tabs
 vim.cmd("set tabstop=4") -- Number of spaces that a <Tab> in the file counts for
-vim.cmd("set softtabstop=2") -- Number of spaces that a <Tab> in the file counts for while editing
-vim.cmd("set shiftwidth=2") -- Number of spaces to use for each step of (auto)indent
-vim.cmd("set autoindent") -- Copy indent from current line when starting a new line (typing <CR> in Insert mode)
+vim.cmd("set softtabstop=4") -- Number of spaces that a <Tab> in the file counts for while editing
+vim.cmd("set shiftwidth=4") -- Number of spaces to use for each step of (auto)indent
+--vim.cmd("set autoindent") -- Copy indent from current line when starting a new line (typing <CR> in Insert mode)
 
 -- Set line numbers to relative
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Highlight column 80
-vim.opt.colorcolumn = "80"
+-- Highlight column 80/120
+vim.opt.colorcolumn = "120"
 
 -- Set history size
 vim.opt.history = 1000

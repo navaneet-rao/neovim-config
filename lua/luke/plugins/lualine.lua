@@ -5,7 +5,8 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "nightfly",
+				theme = "auto",
+				-- theme = "nightfly",
 				-- theme = 'gruvbox-material',
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
@@ -23,9 +24,14 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics", "tag" },
+				lualine_a = { { "mode", icon = "" } },
+				-- lualine_a = { hello },
+				-- lualine_a = { "FugitiveHead" },
+				-- lualine_a = { "g:coc_status", "bo:filetype" },
+				lualine_b = { "branch", "tag", "diff", "diagnostics" },
 				lualine_c = { { "filename", path = 1 } },
+				-- lualine_c = { "%=", "%t%m" },
+				-- lualine_c = { "os.date('%a')", "data", "require'lsp-status'.status()" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },

@@ -14,33 +14,29 @@ return {
 			"rafamadriz/friendly-snippets",
 		},
 		config = function()
-			local luasnip = require("luasnip")
+			local ls = require("luasnip")
 
 			-- Load snippets from custom folder
-			luasnip.config.set_config({
+			ls.config.set_config({
 				history = true,
 				updateevents = "TextChanged,TextChangedI",
 			})
 
-			for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("~/.config/nvim/lua/luke/snippets/*.lua", true)) do
-				loadfile(ft_path)()
-			end
-			-- Key mappings for jumping within snippets
-			-- vim.keymap.set({ "i", "s" }, "<C-k>", function()
-			-- 	if luasnip.expand_or_jumpable() then
-			-- 		luasnip.expand_or_jump()
-			-- 	end
+			-- vim.keymap.set({ "i" }, "<C-K>", function()
+			-- 	ls.expand()
 			-- end, { silent = true })
 			--
-			-- vim.keymap.set({ "i", "s" }, "<C-j>", function()
-			-- 	if luasnip.jumpable(-1) then
-			-- 		luasnip.jump(-1)
-			-- 	end
+			-- vim.keymap.set({ "i", "s" }, "<C-L>", function()
+			-- 	ls.jump(1)
 			-- end, { silent = true })
 			--
-			-- vim.keymap.set({ "i", "s" }, "<C-l>", function()
-			-- 	if luasnip.choice_active() then
-			-- 		luasnip.change_choice(1)
+			-- vim.keymap.set({ "i", "s" }, "<C-J>", function()
+			-- 	ls.jump(-1)
+			-- end, { silent = true })
+			--
+			-- vim.keymap.set({ "i", "s" }, "<C-E>", function()
+			-- 	if ls.choice_active() then
+			-- 		ls.change_choice(1)
 			-- 	end
 			-- end, { silent = true })
 		end,
@@ -63,7 +59,10 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
-			require("luasnip.loaders.from_vscode").lazy_load()
+			local luasnip = require("luasnip")
+
+			require("luasnip.loaders.from_vscode").lazy_load({ require("luke.snippets") })
+
 			cmp.setup({
 				formatting = {
 					format = function(entry, vim_item)
@@ -99,11 +98,31 @@ return {
 					}),
 				},
 				mapping = cmp.mapping.preset.insert({
+					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-y>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },

@@ -20,6 +20,7 @@ local treesitter = {
 					"javascript",
 					"html",
 				},
+
 				highlight = {
 					enable = true,
 					disable = {},
