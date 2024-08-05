@@ -60,6 +60,7 @@ return {
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
 			local luasnip = require("luasnip")
+			local tailwind_formatter = require("tailwindcss-colorizer-cmp").formatter
 
 			require("luasnip.loaders.from_vscode").lazy_load({ require("luke.snippets") })
 
@@ -79,6 +80,10 @@ return {
 							snippy = "[Snippy]",
 							cmdline = "[Cmd]",
 						})[entry.source.name]
+
+						-- Apply tailwindcss-colorizer-cmp formatter for color
+						vim_item = tailwind_formatter(entry, vim_item)
+
 						return vim_item
 					end,
 				},

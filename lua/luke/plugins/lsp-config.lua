@@ -27,13 +27,14 @@ return {
 					"gopls",
 					"arduino_language_server",
 					"asm_lsp",
-					-- "tailwindcss",
+					"tailwindcss",
 					"neocmake",
 					"cmake",
 					"ast_grep",
 					"harper_ls",
 					"jdtls",
 					"lemminx",
+					"eslint",
 				},
 			})
 		end,
@@ -78,11 +79,12 @@ return {
 			lspconfig.gopls.setup({ capabilities = capabilities })
 			lspconfig.arduino_language_server.setup({ capabilities = capabilities })
 			lspconfig.asm_lsp.setup({ capabilities = capabilities })
-			-- lspconfig.tailwindcss.setup({ capabilities = capabilities })
+			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 			lspconfig.neocmake.setup({ capabilities = capabilities })
 			lspconfig.cmake.setup({ capabilities = capabilities })
 			lspconfig.ast_grep.setup({ capabilities = capabilities })
 			lspconfig.lemminx.setup({ capabilities = capabilities })
+			lspconfig.eslint.setup({ capabilities = capabilities })
 
 			-- lspconfig.harper_ls.setup({ capabilities = capabilities })
 

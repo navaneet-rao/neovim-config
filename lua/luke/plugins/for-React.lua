@@ -12,4 +12,32 @@ return {
 			})
 		end,
 	},
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({})
+		end,
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		opts = {},
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {},
+		config = function()
+			require("tailwind-tools").setup({})
+		end,
+	},
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({})
+		end,
+	},
 }

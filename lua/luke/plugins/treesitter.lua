@@ -19,6 +19,9 @@ local treesitter = {
 					"heex",
 					"javascript",
 					"html",
+					"tsx",
+					"json",
+					"css",
 				},
 
 				highlight = {

@@ -10,7 +10,15 @@ local opts = { silent = true }
 local builtin = require("telescope.builtin")
 
 local keymaps = {
-
+	{
+		mode = "n",
+		key = "<leader>ter",
+		action = function()
+			vim.cmd.split()
+			vim.cmd.term()
+		end,
+		desc = "Open Termeinal",
+	},
 	-- Window Navigation
 	{ mode = "n", key = "<C-h>", action = "<C-w><C-h>", desc = "Move to left window" },
 	{ mode = "n", key = "<C-j>", action = "<C-w><C-j>", desc = "Move to bottom window" },
