@@ -1,5 +1,8 @@
 return {
 	"p00f/clangd_extensions.nvim",
+	name = "clangd_extensions.nvim",
+	ft = { "c", "cpp", "objc", "objcpp" }, -- Load only for C, C++, Objective-C, Objective-C++
+	lazy = true,
 	config = function()
 		require("clangd_extensions").setup({
 			inlay_hints = {

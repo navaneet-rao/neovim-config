@@ -1,5 +1,10 @@
 return {
-	{ "nvim-neotest/nvim-nio" },
+	{
+		"nvim-neotest/nvim-nio",
+		name = "nio",
+		lazy = true,
+		event = "BufReadPost",
+	},
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {

@@ -1,7 +1,9 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		name = "indent-blankline.nvim",
 		main = "ibl",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
 		config = function()
 			-- Define custom highlight groups for indent levels

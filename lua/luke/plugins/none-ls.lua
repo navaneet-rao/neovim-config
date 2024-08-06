@@ -1,12 +1,16 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
+		name = "none-ls",
 		event = "VeryLazy",
 		requires = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
+					-- Diagnostics
+					-- null_ls.builtins.diagnostics.eslint,
+					-- Formatting
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettier,
 					null_ls.builtins.formatting.isort,
@@ -20,8 +24,10 @@ return {
 	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
+		name = "conform",
+		event = "BufWritePre",
 		opts = {
-			notify_on_error = false,
+			notify_on_error = true,
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_fallback = true,
@@ -34,6 +40,7 @@ return {
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
 				javascript = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
 				go = { { "gofmt", "gofumpts", "goimports", "golines" } },
 			},
 		},

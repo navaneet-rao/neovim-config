@@ -1,5 +1,8 @@
 return {
 	"nvim-java/nvim-java",
+	name = "nvim-java",
+	ft = "java",
+	-- event = "BufReadPost",
 	config = false,
 	dependencies = {
 		{

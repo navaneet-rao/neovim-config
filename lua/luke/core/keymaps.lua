@@ -9,6 +9,8 @@ local opts = { silent = true }
 
 local builtin = require("telescope.builtin")
 
+local harpoon = require("harpoon")
+
 local keymaps = {
 	{
 		mode = "n",
@@ -25,12 +27,7 @@ local keymaps = {
 	{ mode = "n", key = "<C-k>", action = "<C-w><C-k>", desc = "Move to top window" },
 	{ mode = "n", key = "<C-l>", action = "<C-w><C-l>", desc = "Move to right window" },
 	-- General
-	{
-		mode = "n",
-		key = "<leader>//",
-		action = "<CR>:Telescope keymaps<CR>",
-		desc = "Open Telescope keymaps",
-	},
+
 	{
 		mode = "n",
 		key = "<C-i>",
@@ -229,7 +226,7 @@ local keymaps = {
 		mode = "n",
 		key = "<leader>a",
 		action = function()
-			require("harpoon.mark").add_file()
+			harpoon:list():add()
 		end,
 		desc = "Add file to Harpoon",
 	},
@@ -237,7 +234,7 @@ local keymaps = {
 		mode = "n",
 		key = "<C-e>",
 		action = function()
-			require("harpoon.ui").toggle_quick_menu()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end,
 		desc = "Toggle Harpoon quick menu",
 	},
@@ -245,7 +242,7 @@ local keymaps = {
 		mode = "n",
 		key = "nil", --TODO: remap
 		action = function()
-			require("harpoon.ui").nav_file(1)
+			harpoon:list():select(1)
 		end,
 		desc = "Navigate to Harpoon file 1",
 	},
@@ -253,7 +250,7 @@ local keymaps = {
 		mode = "n",
 		key = "<C-t>",
 		action = function()
-			require("harpoon.ui").nav_file(2)
+			harpoon:list():select(2)
 		end,
 		desc = "Navigate to Harpoon file 2",
 	},
@@ -261,7 +258,7 @@ local keymaps = {
 		mode = "n",
 		key = "<C-n>",
 		action = function()
-			require("harpoon.ui").nav_file(3)
+			harpoon:list():select(3)
 		end,
 		desc = "Navigate to Harpoon file 3",
 	},
@@ -269,23 +266,23 @@ local keymaps = {
 		mode = "n",
 		key = "<C-s>",
 		action = function()
-			require("harpoon.ui").nav_file(4)
+			harpoon:list():select(4)
 		end,
 		desc = "Navigate to Harpoon file 4",
 	},
-	{
+	{ -- TODO: remap keys
 		mode = "n",
-		key = "<C-S-P>",
+		key = "nil",
 		action = function()
-			require("harpoon.ui").nav_prev()
+			harpoon:list():prev()
 		end,
 		desc = "Navigate to previous Harpoon file",
 	},
 	{
 		mode = "n",
-		key = "<C-S-N>",
+		key = "nil",
 		action = function()
-			require("harpoon.ui").nav_next()
+			harpoon:list():next()
 		end,
 		desc = "Navigate to next Harpoon file",
 	},
@@ -296,6 +293,12 @@ local keymaps = {
 		key = "<leader>ff",
 		action = builtin.find_files,
 		desc = "[f]ind [f]iles",
+	},
+	{
+		mode = "n",
+		key = "<leader>//",
+		action = "<CR>:Telescope keymaps<CR>",
+		desc = "Open Telescope keymaps",
 	},
 	{
 		mode = "n",
@@ -317,22 +320,28 @@ local keymaps = {
 	},
 	{
 		mode = "n",
+		key = "<leader>fm",
+		action = builtin.man_pages,
+		desc = "[f]ind [m]an pages",
+	},
+	{
+		mode = "n",
 		key = "<leader>fc",
 		action = builtin.commands,
 		desc = "[f]ind [c]ommands",
 	},
-	{
-		mode = "n",
-		key = "<leader>fr",
-		action = builtin.reloader,
-		desc = "[f]ind [r]eload modules",
-	},
-	{
-		mode = "n",
-		key = "<leader>fo",
-		action = builtin.oldfiles,
-		desc = "[f]ind [o]ld files",
-	},
+	-- {
+	-- 	mode = "n",
+	-- 	key = "<leader>fr",
+	-- 	action = builtin.reloader,
+	-- 	desc = "[f]ind [r]eload modules",
+	-- },
+	-- {
+	-- 	mode = "n",
+	-- 	key = "<leader>fo",
+	-- 	action = builtin.oldfiles,
+	-- 	desc = "[f]ind [o]ld files",
+	-- },
 	{
 		mode = "n",
 		key = "<leader>fws",
