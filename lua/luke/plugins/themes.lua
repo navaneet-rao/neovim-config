@@ -2,7 +2,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		priority = 1004,
+		priority = 1003,
 
 		config = function()
 			require("catppuccin").setup({
@@ -15,9 +15,11 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
+		name = "tokyonight",
 		lazy = false,
 		priority = 1002,
 		opts = {},
+
 		config = function()
 			require("tokyonight").setup({
 				style = "night", -- Use the night style
@@ -67,7 +69,9 @@ return {
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
-		priority = 1003,
+		name = "gruvbox",
+		priority = 1004,
+
 		config = function()
 			require("gruvbox").setup({
 				terminal_colors = true, -- add neovim terminal colors

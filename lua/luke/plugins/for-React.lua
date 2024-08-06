@@ -1,6 +1,7 @@
 return {
 	{
 		"windwp/nvim-autopairs",
+		name = "nvim-autopairs",
 		event = "insertenter",
 		config = function()
 			-- if you want insert `(` after select function or method item
@@ -14,12 +15,16 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		name = "nvim-ts-autotag",
+		event = "bufReadPost",
 		config = function()
 			require("nvim-ts-autotag").setup({})
 		end,
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
+		name = "colorizer",
+		event = "BufReadPost",
 		opts = {},
 		config = function()
 			require("colorizer").setup()
@@ -27,6 +32,8 @@ return {
 	},
 	{
 		"luckasRanarison/tailwind-tools.nvim",
+		name = "tailwind-tools",
+		event = "bufReadPost",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		opts = {},
 		config = function()
@@ -35,7 +42,8 @@ return {
 	},
 	{
 		"roobert/tailwindcss-colorizer-cmp.nvim",
-		-- optionally, override the default options:
+		name = "tailwindcss-colorizer-cmp",
+		event = "InsertEnter", -- optionally, override the default options:
 		config = function()
 			require("tailwindcss-colorizer-cmp").setup({})
 		end,

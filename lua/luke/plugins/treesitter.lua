@@ -1,7 +1,9 @@
 local treesitter = {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		name = "nvim-treesitter",
+		event = "BufReadPost",
+		build = ":TSUpdate",
 		requires = {
 			"p00f/nvim-ts-rainbow", -- Rainbow parentheses
 			"windwp/nvim-ts-autotag", -- Automatically close and rename HTML/XML tags
@@ -26,12 +28,10 @@ local treesitter = {
 
 				highlight = {
 					enable = true,
-					disable = {},
 					additional_vim_regex_highlighting = false,
 				},
 				indent = {
 					enable = true,
-					disable = {},
 				},
 				rainbow = {
 					enable = true,

@@ -1,6 +1,8 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	name = "lualine",
+	event = "BufReadPost",
+	dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	config = function()
 		require("lualine").setup({
 			options = {
@@ -10,6 +12,7 @@ return {
 				-- theme = 'gruvbox-material',
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
+
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},
@@ -47,7 +50,7 @@ return {
 			tabline = {},
 			winbar = {},
 			inactive_winbar = {},
-			extensions = {},
+			extensions = { "fugitive", "nvim-tree", "quickfix" },
 		})
 	end,
 }

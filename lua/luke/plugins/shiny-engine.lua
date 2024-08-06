@@ -1,3 +1,6 @@
 return {
-  "navaneet-rao/shiny-engine.nvim", opts = { name = "Luke" },
+	"navaneet-rao/shiny-engine.nvim",
+	name = "shiny-engine",
+	event = "BufReadPost",
+	opts = { name = "Luke" },
 }

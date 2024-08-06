@@ -1,7 +1,9 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+		name = "telescope",
+		event = "BufReadPost",
+		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local telescope = require("telescope")
@@ -21,6 +23,7 @@ return {
 							preview_height = 0.5,
 						},
 					},
+					bg = "none",
 					layout_strategy = "flex",
 					scroll_strategy = "cycle",
 					selection_strategy = "reset",
@@ -40,10 +43,28 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
+		name = "telescope-ui-select",
+		event = "BufReadPost",
+		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
-			-- To get ui-select loaded and working with telescope, you need to call
-			-- load_extension, somewhere after setup function:
 			require("telescope").load_extension("ui-select")
+		end,
+	},
+	{
+		"mbbill/undotree",
+		name = "undotree",
+		cmd = { "UndotreeToggle", "UndotreeShow", "UndotreeHide", "UndotreeFocus" },
+		config = function()
+			-- Set up key mappings
+			-- TODO: move Keymaps to keymaps file
+			vim.api.nvim_set_keymap("n", "<leader><F5>", ":UndotreeToggle<CR>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreePersistUndo<CR>", { noremap = true, silent = true })
+
+			-- Configure undotree options
+			vim.g.undotree_SetFocusWhenToggle = 1
+			vim.g.undotree_SplitWidth = 35
+			vim.g.undotree_WindowLayout = 2
+			vim.g.undotree_HelpLine = 1
 		end,
 	},
 }

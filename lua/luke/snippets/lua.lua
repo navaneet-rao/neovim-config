@@ -9,4 +9,17 @@ ls.add_snippets("lua", {
 
 	s("func", { t("function "), i(1, "name"), t("()"), t({ "", "end" }) }),
 	s("func1", fmt("function {}() end", { i(0) })),
+
+	s(
+		"cfc",
+		fmt(
+			[[
+            config = function()
+                require({}).setup({})
+                {}
+            end
+        ]],
+			{ i(1), i(2), i(0) }
+		)
+	),
 })

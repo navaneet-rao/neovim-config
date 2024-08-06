@@ -1,11 +1,13 @@
 return {
 	"pocco81/auto-save.nvim",
-
+	name = "auto-save",
+	event = { "InsertLeave", "TextChanged" },
 	enabled = false, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
 	execution_message = {
 		message = function() -- message to print on save
 			return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
 		end,
+		events = { "InsertLeave", "TextChanged" },
 		dim = 0.18, -- dim the color of `message`
 		cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
 	},
@@ -22,7 +24,7 @@ return {
 		end
 		return false -- can't save
 	end,
-	write_all_buffers = false, -- write all buffers when the current one meets `condition`
+	write_all_buffers = true, -- write all buffers when the current one meets `condition`
 	debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
 	callbacks = { -- functions to be executed at different intervals
 		enabling = nil, -- ran when enabling auto-save
