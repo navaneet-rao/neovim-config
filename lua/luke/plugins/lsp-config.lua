@@ -88,6 +88,13 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+			local on_attach = function(client, bufnr)
+				-- Existing on_attach setup, e.g., key mappings, etc.
+
+				-- Set up clangd_extensions inlay hints
+				require("clangd_extensions.inlay_hints").setup_autocmd()
+				require("clangd_extensions.inlay_hints").set_inlay_hints()
+			end
 
 			-- Set up each LSP server using the global variable
 			for _, server in ipairs(_G.LSPsList) do
@@ -104,7 +111,7 @@ return {
 			--  and for projects with only make use
 			--  -- bear -- make all
 			--
-			-- 	lspconfig.clangd.setup({ capabilities = capabilities })
+			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 
 			lspconfig.jdtls.setup({
 				-- jdtls requires min java vesion 0f 17
