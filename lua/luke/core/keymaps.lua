@@ -29,13 +29,6 @@ local keymaps = {
 	-- General
 
 	{
-		mode = "n",
-		key = "<C-i>",
-		action = "<Esc>o",
-		opts = { noremap = true, silent = true },
-		desc = "Insert new line below and enter insert mode",
-	},
-	{
 		mode = "i",
 		key = "<leader>jj",
 		action = "<esc>",
@@ -50,7 +43,7 @@ local keymaps = {
 	{
 		mode = "n",
 		key = "<C-b>",
-		action = "<Cmd>Neotree toggle<CR>",
+		action = "<Cmd>Neotree reveal current<CR>",
 		desc = "Toggle Neo Tree",
 	},
 	{
@@ -169,8 +162,21 @@ local keymaps = {
 	{
 		mode = "n",
 		key = "<leader>tt",
-		action = "<cmd>Trouble diagnostics toggle<cr>",
-		desc = "[t]oggle [t]rouble diagnostics",
+		action = "<cmd>Trouble<cr>",
+		desc = "[t]oggle",
+	},
+	{
+
+		mode = "n",
+		key = "<leader>tl",
+		action = "<cmd>Trouble lsp toggle focus=true<cr>",
+		desc = "[t]oggle [l]sp",
+	},
+	{
+		mode = "n",
+		key = "<leader>td",
+		action = "<cmd>:Trouble diagnostics toggle focus=true<cr>",
+		desc = "[t]oggle [d]sp",
 	},
 	{
 		mode = "n",

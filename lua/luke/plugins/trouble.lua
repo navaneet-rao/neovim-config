@@ -1,12 +1,11 @@
 return {
 	{
 		"folke/trouble.nvim",
-		name = "trouble",
-		cmd = "Trouble",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
 		config = function()
 			require("trouble").setup({})
+			-- require("telescope").load_extension("ui-select")
 		end,
 	},
 	{
