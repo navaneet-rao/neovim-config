@@ -24,6 +24,7 @@ _G.LSPsList = {
 	"lemminx",
 	"eslint",
 	"gradle_ls",
+	"ltex",
 }
 
 _G.java_runtimes = {}

@@ -12,9 +12,8 @@ return {
 				-- theme = 'gruvbox-material',
 				-- component_separators = { left = "", right = "" },
 				-- section_separators = { left = "", right = "" },
-				component_separators = { left = "▍", right = " ▍" },
+				component_separators = { left = " ▍", right = " ▍" },
 				section_separators = { left = "", right = "" },
-
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},
@@ -36,9 +35,18 @@ return {
 				lualine_b = { "branch", "tag", "diff", "diagnostics" },
 				lualine_c = { { "filename", path = 1 } },
 				-- lualine_c = { "%=", "%t%m" },
-				-- lualine_c = { "os.date('%a')", "data", "require'lsp-status'.status()" },
+				-- lualine_c = { "os.date('%a')", "data" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { "progress" },
+				lualine_y = {
+					"progress",
+					"filesize",
+					{
+						function()
+							return vim.fn.line("$")
+						end,
+						icon = "",
+					},
+				},
 				lualine_z = { "location" },
 			},
 			inactive_sections = {

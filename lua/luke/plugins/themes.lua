@@ -54,4 +54,11 @@ return {
 			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1003,
+		config = function()
+			-- vim.cmd([[colorscheme gruvbox]])
+		end,
+	},
 }

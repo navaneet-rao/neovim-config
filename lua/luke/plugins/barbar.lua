@@ -25,7 +25,6 @@ return {
 
 -- TODO: Redo the keymaps and put it in the keymaps file
 
--- local map = vim.api.nvim_set_keymap
 -- local opts = { noremap = true, silent = true }
 --
 -- -- Move to previous/next

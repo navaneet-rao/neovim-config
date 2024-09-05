@@ -36,12 +36,6 @@ local keymaps = {
 	},
 	{
 		mode = "n",
-		key = "<leader>E",
-		action = ":E<CR>",
-		desc = "Open Netrw Explorer",
-	},
-	{
-		mode = "n",
 		key = "<C-b>",
 		action = "<Cmd>Neotree reveal current<CR>",
 		desc = "Toggle Neo Tree",

@@ -2,7 +2,7 @@ return {
 	{
 		"nvimtools/none-ls.nvim",
 		name = "none-ls",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
 		requires = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local null_ls = require("null-ls")
@@ -25,7 +25,6 @@ return {
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		name = "conform",
-		event = "BufWritePre",
 		opts = {
 			notify_on_error = true,
 			format_on_save = {
