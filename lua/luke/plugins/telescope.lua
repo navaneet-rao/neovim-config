@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		name = "telescope",
 		event = "BufReadPost",
 		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -43,7 +42,6 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
-		name = "telescope-ui-select",
 		event = "BufReadPost",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()

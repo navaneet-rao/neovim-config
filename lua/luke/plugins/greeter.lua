@@ -1,7 +1,6 @@
 return {
 	{
 		"goolord/alpha-nvim",
-		name = "alpha",
 		event = "VimEnter",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",

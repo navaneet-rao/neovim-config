@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-neotest/nvim-nio",
-		name = "nio",
 		lazy = true,
 		event = "BufReadPost",
 	},

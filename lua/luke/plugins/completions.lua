@@ -1,7 +1,6 @@
 return {
 	{
 		"j-hui/fidget.nvim",
-		name = "fidget.nvim",
 		event = "LspAttach", -- Load when an LSP attaches to a buffer
 		lazy = true,
 		config = function()
@@ -127,7 +126,6 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
-		name = "Comment.nvim",
 		lazy = false,
 		config = function()
 			require("Comment").setup({
@@ -149,7 +147,6 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
-		name = "LuaSnip",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",

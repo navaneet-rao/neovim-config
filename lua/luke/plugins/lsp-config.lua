@@ -1,7 +1,6 @@
 _G.LSPsList = {
 	"lua_ls",
 	"rust_analyzer",
-	"tsserver",
 	"clangd",
 	"html",
 	"dockerls",
@@ -25,6 +24,7 @@ _G.LSPsList = {
 	"eslint",
 	"gradle_ls",
 	"ltex",
+	"vtsls",
 }
 
 _G.java_runtimes = {}
@@ -59,7 +59,6 @@ end
 return {
 	{
 		"williamboman/mason.nvim",
-		name = "mason",
 		event = "BufReadPost",
 		config = function()
 			require("mason").setup({
@@ -71,7 +70,6 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		name = "mason-lspconfig",
 		event = "BufReadPost",
 		after = "mason.nvim",
 		config = function()
@@ -83,7 +81,6 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		name = "nvim-lspconfig",
 		event = "BufReadPost",
 		after = "mason-lspconfig.nvim",
 		config = function()
@@ -111,7 +108,7 @@ return {
 			--
 			--  and for projects with only make use
 			--  -- bear -- make all
-			--
+
 			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 
 			lspconfig.jdtls.setup({

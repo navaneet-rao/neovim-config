@@ -1,6 +1,5 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	name = "lualine",
 	event = "BufReadPost",
 	dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	config = function()

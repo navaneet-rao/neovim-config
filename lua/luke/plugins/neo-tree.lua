@@ -1,6 +1,5 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	name = "neo-tree",
 	branch = "v3.x",
 	cmd = "Neotree",
 	requires = {

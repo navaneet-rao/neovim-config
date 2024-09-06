@@ -1,7 +1,6 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
-		name = "none-ls",
 		-- event = "VeryLazy",
 		requires = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -24,7 +23,6 @@ return {
 	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
-		name = "conform",
 		opts = {
 			notify_on_error = true,
 			format_on_save = {

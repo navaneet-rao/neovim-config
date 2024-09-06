@@ -1,7 +1,6 @@
 return {
 	{
 		"kdheepak/lazygit.nvim",
-		name = "lazygit",
 		cmd = "LazyGit",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -21,7 +20,6 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		name = "gitsigns.nvim",
 		-- event = "BufReadPost",
 		require("gitsigns").setup({
 			signs = {

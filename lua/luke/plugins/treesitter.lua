@@ -1,7 +1,6 @@
 local treesitter = {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		name = "nvim-treesitter",
 		event = "BufReadPost",
 		build = ":TSUpdate",
 		requires = {

@@ -13,6 +13,9 @@ o.softtabstop = 2
 opt.number = true
 opt.relativenumber = true
 
+opt.termguicolors = true
+opt.cursorline = true
+
 -- Highlight column 80/120
 opt.colorcolumn = "120"
 

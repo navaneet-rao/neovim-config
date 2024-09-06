@@ -5,8 +5,7 @@ return {
 		name = "tokyonight",
 		lazy = false,
 		priority = 1002,
-		opts = {},
-
+		-- opts = {},
 		config = function()
 			require("tokyonight").setup({
 				style = "night", -- Use the night style
@@ -18,13 +17,14 @@ return {
 					strings = { italic = false }, -- Disable italic for strings
 					types = { bold = true }, -- Bold types
 				},
+
 				on_colors = function(colors)
 					colors.hint = colors.orange -- Change the "hint" color to the "orange" color
 					colors.error = "#ff0000" -- Make the "error" color bright red
 					colors.bg = "#1a1b26" -- Custom background color
 					colors.fg = "#c0caf5" -- Custom foreground color
 					colors.selection = "#33467C" -- Custom selection color
-					colors.line_number = "#3b4261" -- Custom line number color
+					-- colors.line_number = "#3b4261" -- Custom line number color
 				end,
 				on_highlights = function(hl, c)
 					hl.Normal = { bg = c.bg, fg = c.fg } -- Customize Normal highlight group
@@ -34,7 +34,7 @@ return {
 					hl.Variable = { fg = c.cyan } -- Customize Variable highlight group
 					hl.String = { fg = c.green, italic = false } -- Customize String highlight group
 					hl.Type = { fg = c.yellow, bold = true } -- Customize Type highlight group
-					hl.LineNr = { fg = c.line_number } -- Customize line numbers
+					-- hl.LineNr = { fg = c.line_number } -- Customize line numbers
 					-- hl.CursorLine = { bg = c.bg_dark }                       -- Customize cursor line background
 					hl.CursorLineNr = { fg = c.orange, bold = true } -- Customize cursor line number
 					hl.Visual = { bg = c.selection } -- Customize visual mode background
@@ -52,13 +52,9 @@ return {
 				end,
 			})
 			vim.cmd([[colorscheme tokyonight]])
-		end,
-	},
-	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 1003,
-		config = function()
-			-- vim.cmd([[colorscheme gruvbox]])
+			-- Ensure line number highlights are set last
+			vim.api.nvim_set_hl(0, "LineNr", { fg = "#ff8800" })
+			vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#00ff88", bold = true })
 		end,
 	},
 }

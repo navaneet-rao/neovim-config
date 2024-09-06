@@ -1,7 +1,6 @@
 return {
 	{
 		"romgrk/barbar.nvim",
-		name = "barbar.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
