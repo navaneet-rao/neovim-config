@@ -56,6 +56,7 @@ else
 		},
 	}
 end
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -103,11 +104,11 @@ return {
 
 			-- to generate the compile_commands.json to as below
 			-- use the below commonf if ur using cmake eith ur c/c++ projects
-			-- -- cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
-			-- -- make
+			-- ---> cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+			-- ---> make
 			--
 			--  and for projects with only make use
-			--  -- bear -- make all
+			-- ---> bear -- make all
 
 			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 

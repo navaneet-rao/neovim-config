@@ -1,11 +1,10 @@
 return {
-
 	{
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
 		lazy = false,
 		priority = 1002,
-		-- opts = {},
+		opts = {},
 		config = function()
 			require("tokyonight").setup({
 				style = "night", -- Use the night style
@@ -24,8 +23,10 @@ return {
 					colors.bg = "#1a1b26" -- Custom background color
 					colors.fg = "#c0caf5" -- Custom foreground color
 					colors.selection = "#33467C" -- Custom selection color
-					-- colors.line_number = "#3b4261" -- Custom line number color
+					colors.line_number = "#ff8800" -- Custom line number color
+					colors.cursor_line_number = "#00ff88" -- Custom cursor line number color
 				end,
+
 				on_highlights = function(hl, c)
 					hl.Normal = { bg = c.bg, fg = c.fg } -- Customize Normal highlight group
 					hl.Comment = { fg = c.comment, italic = true } -- Customize Comment highlight group
@@ -34,9 +35,8 @@ return {
 					hl.Variable = { fg = c.cyan } -- Customize Variable highlight group
 					hl.String = { fg = c.green, italic = false } -- Customize String highlight group
 					hl.Type = { fg = c.yellow, bold = true } -- Customize Type highlight group
-					-- hl.LineNr = { fg = c.line_number } -- Customize line numbers
-					-- hl.CursorLine = { bg = c.bg_dark }                       -- Customize cursor line background
-					hl.CursorLineNr = { fg = c.orange, bold = true } -- Customize cursor line number
+					hl.LineNr = { fg = c.line_number } -- Customize line numbers
+					hl.CursorLineNr = { fg = c.cursor_line_number, bold = true } -- Customize cursor line number
 					hl.Visual = { bg = c.selection } -- Customize visual mode background
 					hl.StatusLine = { fg = c.fg, bg = c.bg_highlight } -- Customize status line
 					hl.StatusLineNC = { fg = c.fg_dark, bg = c.bg_highlight } -- Customize inactive status line
