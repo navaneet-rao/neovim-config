@@ -25,6 +25,7 @@ _G.LSPsList = {
 	"gradle_ls",
 	"ltex",
 	"vtsls",
+	"glint",
 }
 
 _G.java_runtimes = {}
@@ -87,6 +88,8 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+
+			---@diagnostic disable-next-line: unused-local
 			local on_attach = function(client, bufnr)
 				-- Existing on_attach setup, e.g., key mappings, etc.
 
