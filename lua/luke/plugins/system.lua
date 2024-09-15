@@ -6,6 +6,18 @@ return {
 		"Pocco81/true-zen.nvim",
 	},
 	{
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup({})
+		end,
+	},
+	{
+		"Bekaboo/dropbar.nvim",
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+	},
+	{
 		"goolord/alpha-nvim",
 		event = "VimEnter",
 		dependencies = {

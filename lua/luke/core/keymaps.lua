@@ -21,6 +21,7 @@ local keymaps = {
 		end,
 		desc = "Open Termeinal",
 	},
+
 	-- Window Navigation
 	{ mode = "n", key = "<C-h>", action = "<C-w><C-h>", desc = "Move to left window" },
 	{ mode = "n", key = "<C-j>", action = "<C-w><C-j>", desc = "Move to bottom window" },
@@ -114,7 +115,7 @@ local keymaps = {
 	{
 		mode = { "n", "v" },
 		key = "<space>ca",
-		action = vim.lsp.buf.code_action,
+		action = vim.lsp.buf.code_action, -- TODO: maybe use LSPsage code action
 		opts = {},
 		desc = "Code action",
 	},

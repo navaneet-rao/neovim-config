@@ -1,5 +1,12 @@
 return {
 	{
+		"dinhhuy258/git.nvim",
+	},
+	{
+		"tpope/vim-fugitive",
+	},
+
+	{
 		"kdheepak/lazygit.nvim",
 		cmd = "LazyGit",
 		dependencies = {
