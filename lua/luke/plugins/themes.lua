@@ -52,9 +52,15 @@ return {
 				end,
 			})
 			vim.cmd([[colorscheme tokyonight]])
-			-- Ensure line number highlights are set last
-			vim.api.nvim_set_hl(0, "LineNr", { fg = "#ff8800" })
-			vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#00ff88", bold = true })
+		end,
+	},
+	{
+		"LunarVim/darkplus.nvim",
+		lazy = false,
+		priority = 1003,
+		config = function()
+			require("darkplus").setup({})
+			vim.cmd([[colorscheme darkplus]])
 		end,
 	},
 }

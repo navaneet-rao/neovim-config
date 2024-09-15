@@ -61,7 +61,6 @@ end
 return {
 	{
 		"williamboman/mason.nvim",
-		event = "BufReadPost",
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -72,7 +71,6 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		event = "BufReadPost",
 		after = "mason.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
@@ -83,7 +81,6 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPost",
 		after = "mason-lspconfig.nvim",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()

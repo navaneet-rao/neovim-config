@@ -56,7 +56,7 @@ return {
 			-- Set up key mappings
 			-- TODO: move Keymaps to keymaps file
 			vim.api.nvim_set_keymap("n", "<leader><F5>", ":UndotreeToggle<CR>", { noremap = true, silent = true })
-			vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreePersistUndo<CR>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreePersistUndo<CR>")
 
 			-- Configure undotree options
 			vim.g.undotree_SetFocusWhenToggle = 1

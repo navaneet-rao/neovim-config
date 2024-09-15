@@ -5,6 +5,12 @@ return {
 	{
 		"Pocco81/true-zen.nvim",
 	},
+	-- {
+	-- 	"RRethy/vim-illuminate",
+	-- },
+	{
+		"ekickx/clipboard-image.nvim",
+	},
 	{
 		"akinsho/toggleterm.nvim",
 		config = function()

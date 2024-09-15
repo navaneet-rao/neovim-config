@@ -30,3 +30,8 @@ g.mapleader = " "
 
 -- Enable nvim-tree devicons
 g.nvim_tree_devicons = { enable = true, default = true }
+
+-- color Scheme
+-- Ensure line number highlights are set last
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#ff8800" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#00ff88", bold = true })
