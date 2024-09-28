@@ -6,7 +6,7 @@ _G.LSPsList = {
 	"dockerls",
 	"jsonls",
 	"pyright",
-	-- "jedi_language_server",
+	"jedi_language_server",
 	"sqlls",
 	"intelephense",
 	"cssls",
@@ -23,9 +23,11 @@ _G.LSPsList = {
 	"lemminx",
 	"eslint",
 	"gradle_ls",
-	"ltex",
+	-- "ltex",
 	"vtsls",
 	"glint",
+	"ts_ls",
+	"prismals",
 }
 
 _G.java_runtimes = {}

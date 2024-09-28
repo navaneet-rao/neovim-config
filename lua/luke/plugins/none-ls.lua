@@ -17,6 +17,7 @@ return {
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.golines,
 					null_ls.builtins.formatting.gofmt,
+					null_ls.builtins.formatting.djlint,
 				},
 			})
 		end,
@@ -32,7 +33,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				python = { "isort", "black" },
+				python = { "black", "djlint", "isort" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
